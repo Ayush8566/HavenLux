@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
-import { signInSuccess,signInStart,signInFailure } from "../redux/user/userSlice";
+import { signInSuccess,signInStart,signInFailure } from "../redux/user/userSlice.js";
 import OAuth from "../components/OAuth";
-export default function Singin() {
+export default function SingIn() {
   const [formData, setFormData] = useState();
 const {loading ,error} = useSelector((state) => state.user)
   // const [loading, setLoading] = useState(false);
