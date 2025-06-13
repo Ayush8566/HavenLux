@@ -3,12 +3,13 @@ import mongoose from "mongoose";
 import userRouter from "./routes/user.js";
 import authRouter from "./routes/auth.js";
 import dotenv from "dotenv";
+
+import path from "path";
 dotenv.config();
 import listingRouter from "./routes/listing.js";
 // Load environment variables
 import cookieParser from "cookie-parser";
 
-import path from "path";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
@@ -19,8 +20,13 @@ const PORT = process.env.PORT || 9000;
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
+<<<<<<< HEAD
 
     // console.log("MongoDB connected");
+=======
+   
+    console.log("MongoDB connected");
+>>>>>>> fe26b8e2c0fce0201be895af3fb2a9757702d83c
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });
@@ -38,7 +44,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/listing", listingRouter);
 app.use(express.static(path.join(__dirname, "/client/dist")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
 app.use((err, req, res, next) => {
